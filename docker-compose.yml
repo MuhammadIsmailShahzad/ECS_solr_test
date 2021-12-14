@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  solr:
+    container_name: solr-uu
+    build:
+      context: .
+    volumes:
+      - solr_data:/opt/solr/server/solr/ckan/data/index
+    ports:
+      - "8983:8983"
+    networks:
+      main:
+        aliases:
+          - solr
+volumes:
+  solr_data:
+
+networks:
+  main:
